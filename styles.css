@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.4rem;
+}
+
+header p {
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+.game-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.game-tabs button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5f5f5;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.game-tabs button.active {
+  background: #ff9800;
+  color: #111;
+}
+
+.game-tabs button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px 30px;
+}
+
+.game-section {
+  display: none;
+  max-width: 800px;
+  width: 100%;
+  background: rgba(14, 22, 33, 0.95);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.game-section.active {
+  display: block;
+}
+
+.game-section h2 {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.game-section p {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+/* Tic Tac Toe */
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 6px;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.ttt-cell {
+  background: #1e293b;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.ttt-cell:hover {
+  background: #334155;
+  transform: translateY(-1px);
+}
+
+.ttt-cell.taken {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.status-text {
+  text-align: center;
+  margin: 8px 0 12px;
+}
+
+.status-text.small {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Reaction game */
+.reaction-box {
+  margin: 15px auto;
+  width: 220px;
+  height: 120px;
+  border-radius: 12px;
+  background: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+/* Memory grid */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.memory-card {
+  width: 80px;
+  height: 100px;
+  border-radius: 10px;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s, box-shadow 0.2s;
+}
+
+.memory-card.flipped,
+.memory-card.matched {
+  background: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+}
+
+.memory-card:hover {
+  transform: translateY(-1px);
+}
+
+/* RPS */
+.rps-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.rps-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #0ea5e9;
+  color: #111827;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.rps-btn:hover {
+  background: #38bdf8;
+  transform: translateY(-1px);
+}
+
+/* Buttons general */
+button {
+  font-family: inherit;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid #64748b;
+  color: #e2e8f0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 4px;
+}
+
+button.secondary:hover {
+  background: rgba(148, 163, 184, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 8px 10px 14px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ttt-board {
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 70px);
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(4, 70px);
+  }
+
+  #meme-img {
+    width: 280px;
+  }
+}
